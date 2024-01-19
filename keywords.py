@@ -74,3 +74,20 @@ df.reset_index(inplace=True)
 df.to_csv('关键词词频.csv', index=False)
 
 
+import pandas as pd
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+# Read the CSV file into a DataFrame
+df = pd.read_csv('your_file.csv')
+
+# Create a string of all the values
+text = ' '.join(df['Value'])
+
+# Generate the word cloud
+wordcloud = WordCloud().generate(text)
+
+# Display the word cloud
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis('off')
+plt.show()
